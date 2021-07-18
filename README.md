@@ -1,8 +1,8 @@
-Este repositORIO contm todas as atividades de aprendizagem desenvolvidas por _[RENATO ADORNO](https://www.linkedin.com/in/renatoadorno/)_ enquanto estudava na [Trybe](https://www.betrybe.com/)
+Este repositorio contem todas as atividades de aprendizagem desenvolvidas por _[RENATO ADORNO](https://www.linkedin.com/in/renatoadorno/)_ enquanto estudava na [Trybe](https://www.betrybe.com/)
 
 O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introduÃ§Ã£o ao desenvolvimento de software, front-end, back-end, ciencia da computação, engenharia de software, metodologias ageis e habilidades comportamentais.
 
-## Fundamentos do Desenvolvimento Web :white_check_mark:
+## Fundamentos do Desenvolvimento Web :hourglass_flowing_sand:
 
 ##### Bloco 1: Introdução - Unix & Shell
 
@@ -52,7 +52,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [ ] 6-5: _CSS Responsivo - Mobile First_
 - [ ] 6-6: _[Projeto - PÃ¡gina inicial do Facebook]()_
 
-##### Bloco 7: JavaScript ES6 & Testes UnitÃ¡rios
+##### Bloco 7: JavaScript ES6 & Testes Unitarios
 
 - [ ] 7-1: _JavaScript ES6 - let, const, arrow functions e template literals_
 - [ ] 7-2: _JavaScript ES6 - Objects_
