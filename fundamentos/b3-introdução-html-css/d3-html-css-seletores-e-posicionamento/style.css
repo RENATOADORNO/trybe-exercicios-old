@@ -1,36 +1,19 @@
-.super-mario {
-  width: 200px;
+
+
+/* Par */
+ol li:nth-child(even) {
+  color: green;
 }
 
-.goomba {
-  width: 100px;
-  position: absolute;
-  top: 350px;
-  left: 100px;
+/* Ímpar */
+ol li:nth-child(odd){
+  text-transform: uppercase;
+  text-align: center;
 }
 
-.baloon {
-  position: absolute;
-  top: 600px;
-  left: 25px;
-  z-index: 1;
-}
-
-.speach {
-  position: absolute;
-  font-size: 25px;
-  top: 641px;
-  left: 42px;
-  z-index: 2;
-}
-
-.bowser {
-  width: 200px;
-  position: absolute;
-  top: 780px;
-  left: 250px;
-}
-
-p {
-  top: 300px;
-}
+h1 {
+  color: red;
+  font-size: 40px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
