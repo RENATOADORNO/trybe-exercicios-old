@@ -28,8 +28,8 @@
 // console.log(z);
 
 //Módulo (a % b)
-let a = 500;
-let b = 100;
+let a = 23;
+let b = 10;
 let z = a % b;
 
 console.log(z);
