@@ -5,10 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloco 6 - Dia 2</title>
+  <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
   <link rel="stylesheet" type="text/css" href="/d2-bibliotecas-javascript-e-frameworks-css/bootstrap-5.1.0-dist/css/bootstrap.min.css">
-  <script src="/jquery-3.6.0.min.js"></script>
-  <script src="/bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+  <script src="/d2-bibliotecas-javascript-e-frameworks-css/jquery-3.6.0.min.js"></script>
+  <script src="/d2-bibliotecas-javascript-e-frameworks-css/bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="/d2-bibliotecas-javascript-e-frameworks-css/script.js"></script>
 </head>
 <body>
   <header class="form-header">
@@ -16,7 +19,7 @@
     <p>Preencha os campos abaixo.</p>
   </header>
   <main class="box-style">
-    <form action="">
+    <form id="cv-form">
       <div class="box">
         <h4>Dados Pessoais</h4>
         <fieldset>
@@ -96,15 +99,17 @@
           </div>
           <div class="form-floating mb-3 line-content">
             <input type="text" name="startDate" class="form-control input-data" value="" id="startDate" placeholder="Descrição do cargo" maxlength="500" required>
+            <input type="text" id="datepicker">
             <label for="startDate">Data de início</label>
           </div>
         </fieldset>
-          <button class="submit-button btn btn-dark btn-lg" type="submit">Enviar</button>
-          <button class="clear-button btn btn-secondary btn-lg" type="button">Limpar</button>
+          <button class="submit-button btn btn-dark " type="submit">Enviar</button>
+          <button class="clear-button btn btn-secondary " type="button">Limpar</button>
       </div>
     </form>
   </main>
   <section class="form-data"></section>
-  <script src="script.js"></script>
+  <script  src = "pikaday.js"> </script> 
+  <script src="moment.js"></script>
 </body>
 </html>
