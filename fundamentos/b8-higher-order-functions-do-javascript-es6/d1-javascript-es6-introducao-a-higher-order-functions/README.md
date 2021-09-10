@@ -163,3 +163,7 @@ const numberGenerator = () => {
 console.log(numberGenerator);
 
 ```
+
+Veja que ao executar esse código, não recebemos um número aleatório. Isso aconteceu porque na quinta linha do script nós imprimimos apenas a escrita da função, como não realizamos sua execução, ela não seguiu os procedimentos para retornar um número aleatório. Para executarmos a função, teríamos que inserir `()` na frente do `numberGenerator` .
+
+Essa lógica é a mesma quando usamos callback dentro de outras funções. Lembre que o traço do JavaScript que considera funções como cidadãs de primeira classe permite que nós possamos inserir elas em variáveis. Você já fez isso antes também, se voltar no primeiro exemplo dessa função, vai ver que a chamada da callback no `addEventListener` funciona de modo similar. Tudo isso é parte de algo maior, são *High Order Functions* .
