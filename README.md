@@ -1,6 +1,10 @@
-Este repositorio contem todas as atividades de aprendizagem desenvolvidas por _[RENATO ADORNO](https://www.linkedin.com/in/renatoadorno/)_ enquanto estudava na [Trybe](https://www.betrybe.com/)
+[](#SouTryber.png)
 
-O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introduÃ§Ã£o ao desenvolvimento de software, front-end, back-end, ciencia da computação, engenharia de software, metodologias ageis e habilidades comportamentais.
+Este repositorio contem todas as atividades de aprendizagem desenvolvidas por [RENATO ADORNO](https://www.linkedin.com/in/renatoadorno/) enquanto estudava na [Trybe](https://www.betrybe.com/).
+
+Conta com mais de 1.500 horas de aulas online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciencia da computação, engenharia de software, metodologias ageis e habilidades comportamentais.
+
+Todo o conteúde deste repositório tem como principal referencia a [Trybe](https://www.betrybe.com/).
 
 ## Fundamentos do Desenvolvimento Web :hourglass_flowing_sand:
 
