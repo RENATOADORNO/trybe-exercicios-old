@@ -27,6 +27,7 @@ const isEven2 = numbers.filter((number) => number % 2 === 0);
 console.log(isEven2); // [ 30, 22 ]
 
 ```
+
 Verifique que o retorno foi um array com os dois números pares do array `numbers` .
 
 Olhe este outro exemplo de apenas pegar os elementos que não possuem alguma condição. Neste caso, deseja-se apenas as pessoas que não possuem ainda idade para dirigir:
