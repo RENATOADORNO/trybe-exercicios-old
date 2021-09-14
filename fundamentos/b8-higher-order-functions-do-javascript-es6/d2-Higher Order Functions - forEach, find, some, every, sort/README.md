@@ -219,7 +219,7 @@ Agora estamos tratando de uma *HOF* , sendo assim é possível se utilizar tam
 ```Java Script
 const names = ['Bianca', 'Camila', 'Fernando', 'Ana Roberta'];
 
-const convertToUpperCase = (name, index) => {
+const convertToUpperCase = (name, index) => { // é um for, pois precisa do index
   names[index] = name.toUpperCase();
 };
 

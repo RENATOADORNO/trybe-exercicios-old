@@ -8,8 +8,6 @@ A função `map` é, talvez, uma das mais poderosas (e complexas!) funções p
 
 O `filter` é bem parecido com o `find` . O que o `filter` traz de novo é que, em vez de retornar apenas um elemento do array, ele retornará outro array com todos os elementos que satisfaçam à condição verificada pela função.
 
-A animação abaixo nos mostra como o `filter` pode ser utilizado para filtrar os valores maiores que vinte do array `listaNumeros`. Observe que o retorno da função é um novo array ( `maiorVinte` ) contendo os números que passaram pelo filtro.
-
 No exemplo abaixo, apenas substituiremos o `find` por `filter`.
 
 ```Java Script
@@ -41,9 +39,9 @@ const objPeople = [
   { name: 'Vitor', age: 15 },
 ];
 
-const verifyAgeDrive = (arrayOfPeople) => (
+const verifyAgeDrive = (arrayOfPeople) => {
   arrayOfPeople.filter((people) => (people.age < 18))
-);
+};
 
 console.log(verifyAgeDrive(objPeople));
 // [ { name: 'Maria', age: 16 }, { name: 'Vitor', age: 15 } ]
