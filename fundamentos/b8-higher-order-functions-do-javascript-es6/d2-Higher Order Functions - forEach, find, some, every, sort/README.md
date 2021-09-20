@@ -64,7 +64,7 @@ AssertionError [ERR_ASSERTION]: 'valor1' == 'valor2'
 
 Atente para a linha que diz por que a execução falhou: `AssertionError [ERR_ASSERTION]: 'valor1' == 'valor2'` . Isso significa que o resultado da função `funcaoQualquer,` `valor1` , é diferente do esperado, `valor2` .
 
-### **Agora a prática**
+## **Agora a prática**
 
 Estes exercícios praticam os conceitos de *Higher Order Functions* associados a outros já vistos, como *arrow functions* , *template literals* , *objetos* e temas dos fundamentos. Essa mistura de conceitos é muito importante para seu aprendizado, então use tudo o que sabe para resolver os exercícios!
 
