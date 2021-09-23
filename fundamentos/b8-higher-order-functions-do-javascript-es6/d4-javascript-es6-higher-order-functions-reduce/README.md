@@ -1,51 +1,256 @@
-# Conteúdo do Dia 8.4
+# Exercícios
 
-## Array.reduce
+## **Instruções para realização dos exercícios**
 
-O reduce é diferente das outras *HOFs* : ele possui um parâmetro a mais para a função que recebe como parâmetro. Esse parâmetro é chamado de **acumulador** , comumente referido como `acc` . E o que ele faz? Ele serve para **acumular dentro de si** os resultados das funções. Pense assim: caso não exista segundo parâmetro no `reduce` , para um array de cinco elementos, o `reduce` executará a função passada como parâmetro quatro vezes. O valor inicial de `acc` será a primeira posição do array. Na primeira iteração ele realiza a função com o primeiro valor do *array* que está em `acc` com a segunda posição que está em seu segundo parâmetro `curr` , que é chamado de **current** . Na segunda vez, `acc` conterá o retorno da primeira iteração, na terceira, o retorno da primeira e da segunda, e assim por diante. Olhe no exemplo abaixo:
+Nos exercícios a seguir, você trabalhará com uma estrutura de dados representando uma lista de livros, contendo informações como nome do livro, gênero, pessoa autora do livro e data de lançamento.
 
-- A função soma todos os valores de um array:
-- Apenas com o `for` :
+Em cada exercício, será pedido que você encontre ou produza alguma informação a respeito dessa lista utilizando as funções que você aprendeu hoje. Todos os exercícios contêm um código base. Você deverá copiar esse código e salvá-lo em um arquivo nomeado conforme o número do exercício, completando a função em branco.
 
-```Java Script
-const numbers = [32, 15, 3, 2, -5, 56, 10];
-let sumNumbers = 0;
-// A variável 'acumula', a cada iteração do for, o resultado da operação feita lá!
+Por exemplo, o exercício 1 deve ser salvo no arquivo `exercise1.js` , e assim por diante. Em cada exercício existe uma ou mais chamadas de funções do módulo [assert](https://www.w3schools.com/nodejs/ref_assert.asp) . Estas funções checarão automaticamente se seu código retorna o resultado esperado.
 
-for (let index = 0; index < numbers.length; index += 1) {
-  sumNumbers += numbers[index];
+Sua solução só será considerada correta se **todos** os *asserts* do arquivo forem executados sem erros. No *Visual Studio Code* , você pode executar o código do exemplo *clicando* com o botão direito e escolhando a opção `Run Code` .
+
+Quando todos os *asserts* passam, isto é, nenhum deles encontra um resultado diferente esperado, nada de diferente do normal é reportado:
+
+```jsx
+const assert = require('assert');
+
+function foo() {
+  return 'bar';
 }
-console.log(sumNumbers); // 113
 
+assert.strictEqual(foo(), 'bar');
 ```
 
-- Com `.reduce` :
+```jsx
+[Running] node "/Users/leandro/example.js"
 
-```Java Script
-const numbers = [32, 15, 3, 2, -5, 56, 10];
-
-const sumNumbers = numbers.reduce((result, number) => result + number); // O parâmetro `result` é o acumulador. Ele recebe, do `reduce`, o retorno da função a cada iteração.
-console.log(sumNumbers); // 113
-
-// Ou seja:
-
-const getSum = (result, number) => result + number;
-const sumNumbers = numbers.reduce(getSum);
-console.log(sumNumbers); // 113
-
+[Done] exited with code=0 in 0.087 seconds
 ```
 
-Dissecando as funções:
+Quando algum *assert* falha, é exibido, entre outras coisas, a linha onde o erro aconteceu e sua causa:
 
-Usando `for` :
+```jsx
+const assert = require('assert');
 
-- Necessidade de criar uma variável para acumular o resultado de cada iteração do `for` , a soma de cada resultado - `let sumNumbers` ;
-- Necessidade de setar um valor inicial para variável - `sumNumbers = 0` ;
+function foo() {
+  return 'bar';
+}
 
-Usando `.reduce` :
+assert.strictEqual(foo(), 'baz');
+```
 
-- A função passada por parâmetro recebe dois parâmetros, o acumulador `result` e o elemento do array de cada iteração, `number` ;
-- Como a função é uma *arrow function* que possui apenas uma linha, o retorno de cada iteração será: `result + number` ;
-- O retorno é salvo no primeiro parâmetro , `result` . É como se você estivesse fazendo igual à primeira função, `sumNumbers = sumNumbers + numbers[index]` , mas nesse caso seria `result = result + number` ;
+```jsx
+[Running] node "/Users/leandro/example.js"
+assert.js:92
+  throw new AssertionError(obj);
+  ^
 
+AssertionError [ERR_ASSERTION]: 'bar' == 'baz'
+    at Object.<anonymous> (/Users/leandro/example.js:7:8)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1025:10)
+    at internal/main/run_main_module.js:17:11 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 'bar',
+  expected: 'baz',
+  operator: '=='
+}
 
+[Done] exited with code=1 in 0.075 seconds
+```
+
+Atente para a linha que diz por que a execução falhou: `AssertionError [ERR_ASSERTION]: 'bar' == 'baz'` . Isso significa que o resultado da função `foo` ( `bar` ) é diferente do esperado ( `baz` ).
+
+## **Agora a prática**
+
+Todos os exercícios devem ser realizados utilizando `reduce` , e se necessário outra *HOF* , a informação será citada no enunciado.
+
+**1** - Dada uma matriz, transforme em um array.
+
+```jsx
+const assert = require('assert');
+
+const arrays = [
+  ['1', '2', '3'],
+  [true],
+  [4, 5, 6],
+];
+
+function flatten() {
+  // escreva seu código aqui
+}
+
+assert.deepStrictEqual(flatten(), ['1', '2', '3', true, 4, 5, 6]);
+```
+
+---
+
+**Para os exercícios 2, 3 e 4 considere o seguinte array:**
+
+```jsx
+const assert = require('assert');
+
+const books = [
+  {
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    genre: 'Fantasia',
+    author: {
+      name: 'George R. R. Martin',
+      birthYear: 1948,
+    },
+    releaseYear: 1991,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: {
+      name: 'J. R. R. Tolkien',
+      birthYear: 1892,
+    },
+    releaseYear: 1954,
+  },
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Isaac Asimov',
+      birthYear: 1920,
+    },
+    releaseYear: 1951,
+  },
+  {
+    id: 4,
+    name: 'Duna',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Frank Herbert',
+      birthYear: 1920,
+    },
+    releaseYear: 1965,
+  },
+  {
+    id: 5,
+    name: 'A Coisa',
+    genre: 'Terror',
+    author: {
+      name: 'Stephen King',
+      birthYear: 1947,
+    },
+    releaseYear: 1986,
+  },
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: {
+      name: 'H. P. Lovecraft',
+      birthYear: 1890,
+    },
+    releaseYear: 1928,
+  },
+];
+
+// Adicione o código do exercício aqui:
+```
+
+---
+
+**2** - Crie uma string com os nomes de todas as pessoas autoras.
+
+```jsx
+const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
+
+function reduceNames() {
+  // escreva seu código aqui
+}
+
+assert.strictEqual(reduceNames(), expectedResult);
+```
+
+---
+
+**3** - Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+
+```jsx
+const expectedResult = 43;
+
+function averageAge() {
+  // escreva seu código aqui
+}
+
+assert.strictEqual(averageAge(), expectedResult);
+```
+
+---
+
+**4** - Encontre o livro com o maior nome.
+
+```jsx
+const expectedResult = {
+  id: 1,
+  name: 'As Crônicas de Gelo e Fogo',
+  genre: 'Fantasia',
+  author: {
+    name: 'George R. R. Martin',
+    birthYear: 1948,
+  },
+  releaseYear: 1991,
+};
+
+function longestNamedBook() {
+  // escreva seu código aqui
+}
+
+assert.deepStrictEqual(longestNamedBook(), expectedResult);
+```
+
+---
+
+**5** - Dada o *array* de nomes, retorne a quantidade de vezes em que aparecem a letra `a` maiúscula ou minúscula.
+
+```jsx
+const assert = require('assert');
+
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
+
+function containsA() {
+  // escreva seu código aqui
+}
+
+assert.deepStrictEqual(containsA(), 20);
+```
+
+---
+
+**6.** - Agora vamos criar um novo array de objetos a partir das informações abaixo, onde cada objeto terá o formato `{ name: nome do aluno, average: media das notas }` . Para isso vamos assumir que a posição 0 de `notas` refere-se ao aluno na posição 0 de `alunos` , aqui além de `reduce` será necessário utilizar também a função `map` . Dica: Você pode acessar o index do array dentro de `map` , e você pode ver o objeto esperado na constante `expected` .
+
+```jsx
+const assert = require('assert');
+
+const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
+const grades = [[9, 8, 10, 7, 5], [10, 9, 9, 10, 8], [10, 7, 10, 8, 9]];
+
+function studentAverage() {
+  // escreva seu código aqui
+}
+
+const expected = [
+  { name: 'Pedro Henrique', average: 7.8 },
+  { name: 'Miguel', average: 9.2 },
+  { name: 'Maria Clara', average: 8.8 },
+];
+
+assert.deepStrictEqual(studentAverage(), expected);
+```
