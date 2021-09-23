@@ -14,6 +14,6 @@
 - ForEach -> percorre todos os elementos do array, aplicando lógica.
 - Reduce -> realiza calculo interativo com base nos elementos.
 - Find -> encontra elementos com base em preposições.
-- Some -> verifica se há pelo menos um elemento que atende a preposição.
-- Every -> verifica se todos os elementos atendem a proposição.
+- Some -> verifica se há pelo menos um elemento que atende a preposição, retorna valor buleano.
+- Every -> verifica se todos os elementos atendem a proposição, retorna valor buleano.
 - Sort -> ordena os elementos com base em um critério.

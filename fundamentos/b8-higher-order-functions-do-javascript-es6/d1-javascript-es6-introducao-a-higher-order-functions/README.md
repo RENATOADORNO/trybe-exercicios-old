@@ -1,169 +1,114 @@
-# Conteúdo do Dia 8.1
+# Exercícios
 
-## First-Class Functions
+**1 -** Crie uma função que retorne um objeto no formato `{ nomeCompleto, email }` representando uma nova pessoa contratada. Passe sua função como parâmetro da *HOF* `newEmployees` para criar cada pessoa contratada em seu respectivo `id` . A sua função deve receber como parâmetro o nome completo da pessoa funcionária e a partir dele gerar automaticamente um email no formato `nome_da_pessoa@trybe.com` .
 
-Uma linguaguem é dita ter First-Class Functions quando trata suas funções como [first class citizens](https://en.wikipedia.org/wiki/First-class_citizen) (isto é, cidadãos de primeira classe), ou seja, elas suportam as mesmas operações que estão disponíveis para os outros tipos. Isso significa que nossas funções podem ser atribuídas à variáveis, passadas como argumento e/ou retornadas por outras funções. JavaScript é uma linguagem que utiliza esse conceito, portanto podemos:
-
-`Atribuir funções à variáveis:`
-
-```Java Script
-function sum (number1, number2) {
-  return number1 + number2;
-}
-
-const sumVariable = sum;
-
-console.log(sumVariable);
-//  [Function: sum]
-
-```
-
-No exemplo acima, vemos a declaração da função `sum` acontecendo e a atribuição da mesma função dentro de uma variável chamada `sumVariable` . Esse exemplo pode soar estranho. Você deve estar se perguntando: "criei uma função pra colocar ela dentro de uma variável... por que fazer isso?". Caso você tenha tido esse questionamento, não sinta-se perdido. O real motivo foi para exemplificar que podemos fazer.
-
-Mas achou que iriamos te deixar sem exemplo concreto? Achou errado! Aliás, vocês já fazem isso há algum tempo...
-
-```Java Script
-const sum = (number1, number2) => {
-  return number1 + number2;
-};
-
-```
-
-Quando utilizamos `arrow functions` , estamos justamente utilizando da capacidade do javascript de conseguir armazenar a função dentro de uma variável. Isso é algo **maravilhoso** .
-
-`Passar funções como argumento para outras funções:`
-
-```Java Script
-const sayHello = () => {
-  return ('hello trybers');
-}
-
-const printGreeting = (callback) => {
-    console.log(callback());
-}
-
-printGreeting(sayHello);
-
-```
-
-`Retornar uma função de outra função:`
-
-```Java Script
-const sumFixAmount = (amount) => {
-  return (number) => amount + number;
-}
-
-const initialSum = sumFixAmount(15)
-console.log(initialSum(5));
-
-```
-
-## Higher Order Functions
-
-Agora que já especificamos o que são funções de primeira classe, vamos aprender sobre as *Funções de Ordem Superior* , conhecidas por *Higher Order Functions* ou *HOF* .
-
-As *HOFs* são funções que usam outras funções em suas operações, devendo aceitá-las como parâmetro e/ou retorná-las. O mais incrível é que você já aplicou este conceito na prática. Veja este exemplo:
-
-```Java Script
-const button = document.querySelector('#signup-button');
-
-const registerUser = () => {
-  console.log('Registrado com sucesso!');
-};
-
-button.addEventListener('click', registerUser);
-
-```
-
-Construímos uma função que simula o registro de uma nova pessoa e passamos como argumento de uma segunda função. Logo, `addEventListener` é uma HOF.
-
-**Lembre-se:** First-Class Functions é o nome do conceito que define a forma que a linguagem (no nosso caso JavaScript) trata suas funções, permitindo que sejam suportadas em operações que são usadas em outros tipos (atribuição, retorno, parâmetro), e HOF é uma função que atende ao critério de receber como parâmetro e/ou retornar outra função.
-
-Agora que você viu o que são funções de primeira classe e sua aplicação em parâmetros, partiu saber como estruturar suas *HOF* ?
-
-## Estruturando uma HOF
-
-Vamos construir este conceito passo a passo para que você possa compreender e aplicar na sua jornada como pessoa desenvolvedora. Para isto, é extremamente importante ter em mente que as *HOF* nos permitem compactar ações e não somente repassar valores. Veja este exemplo:
-
-```Java Script
-const repeat = (number, action) => {
-  for (let count = 0; count <= number; count += 1) {
-    action(count);
+```jsx
+const newEmployees = () => {
+  const employees = {
+    id1: '', // Nome: Pedro Guerra -> Chame sua função passando o nome Pedro Guerra como parâmetro, substituindo as aspas
+    id2: '', // Nome: Luiza Drumond -> Chame sua função passando o nome Luiza Drumond como parâmetro, substituindo as aspas
+    id3: '', // Nome: Carla Paiva -> Chame sua função passando o nome Carla Paiva como parâmetro, substituindo as aspas
   }
+  return employees;
 };
-
-repeat(5, console.log);
-
 ```
 
-Construímos essa função para implementar um laço de repetição entre 0 e um número especificado via parâmetro ( `number` ) e para mostrar no console o valor da variável *count* de 0 a N ( `number` ). O `console.log` é uma função própria do `JavaScript` , mas veja que fica mais simples caso você precise substituir esta ação para `console.table` ou `console.group` .
+---
 
-Vamos aumentar um pouco o nível de complexidade e visualizar como podemos ir construindo funções mais especializadas e bem definidas. Veja este exemplo:
+**2 -** Desenvolva uma *HOF* que retorna o resultado de um sorteio. Esta *HOF* irá gerar um número aleatório entre 1 e 5 recebendo como parâmetros o número apostado e uma função que checa se o número apostado é igual ao número sorteado. O retorno da sua HOF deve ser uma string (Ex: "Tente novamente" ou "Parabéns você ganhou").
 
-```Java Script
-const repeat = (number, action) => {
-  for (let count = 0; count <= number; count += 1) {
-    action(count);
-  }
-};
+---
 
-repeat(3, (number) => {
-  if (number % 2 === 0) {
-    console.log(number, 'is even');
-  }
-});
+**3 -** Crie uma *HOF* que receberá três parâmetros. O primeiro será um array de respostas corretas (Gabarito), o segundo será um array de respostas a serem verificadas (respostas da pessoa estudante) e o terceiro é uma função que checa se as respostas estão corretas e faz a contagem da pontuação final recebida pela pessoa estudante. Ao final a *HOF* deve retornar o total da contagem de respostas certas.
 
+- Quando a resposta for correta a contagem sobe 1 ponto, quando for incorreta desce 0.5 pontos, e quando não houver resposta ("N.A") não altera-se a contagem.
+
+```jsx
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
 ```
 
-Pegamos a nossa implementação do exemplo anterior e repassamos dois parâmetros ao chamarmos a função `repeat` , sendo:
+---
 
-**1 -** Um número até que ponto gostaríamos de testar, neste caso `3` ;
+### **Bônus**
 
-**2 -** Nossa ação que será executada quando chamada `action(count)` na nossa função `repeat` , neste caso uma função para testar nossos números.
+### **Parte I - Game Actions Simulator**
 
-Veja que nosso segundo parâmetro é uma função que recebe o `count` como argumento, proveniente da execução do nosso `action(count)` dentro da função `repeat` . Deste modo, caso o `count` passe pela condição estabelecida para ser um número par, será executada a mensagem com os números que atendem ao critério.
+Nestes exercícios você irá implementar *HOFs* que simulam um turno de batalha em um jogo. Você irá criar funções que calculam dano, atualizam status, e ao final, retornam os resultados da rodada.
 
-Pense agora que gostaríamos de testar quais números são ímpares. Veja como fica fácil ajustar a implementação:
+Para os próximos exercícios copie o código abaixo.
 
-```Java Script
-const repeat = (number, action) => {
-  for (let count = 0; count <= number; count += 1) {
-    action(count);
-  }
+```jsx
+const mage = {
+  healthPoints: 130,
+  intelligence: 45,
+  mana: 125,
+  damage: undefined,
 };
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    console.log(number, 'is even');
-  }
+const warrior = {
+  healthPoints: 200,
+  strength: 30,
+  weaponDmg: 2,
+  damage: undefined,
 };
 
-const isOdd = (number) => {
-  if ((number % 2) > 0) {
-    console.log(number, 'is odd');
-  }
+const dragon = {
+  healthPoints: 350,
+  strength: 50,
+  damage: undefined,
 };
 
-repeat(3, isEven); // Testa quais números serão pares;
-repeat(3, isOdd); // Testa quais números serão ímpares;
-
+const battleMembers = { mage, warrior, dragon };
 ```
 
-Observe que apenas transportamos e ajustamos a lógica para identificar os números pares e ímpares em duas novas funções chamadas `isEven` e `isOdd` . Após isso, só alteramos o segundo parâmetro ao chamar a função `repeat` .
+---
 
-A função recebida como argumento pela HOF, também é conhecida por `callback` . No exemplo, `repeat` é uma HOF que recebe `isEven` ou `isOdd` como callback. Podemos encontrar mais sobre este assunto nos *Recursos adicionais* , no entanto não se preocupe com este conceito no momento, abordaremos isso nos conteúdos adiante.
+**1 -** Crie uma função que retorna o dano do dragão.
 
-Olhe o exemplo a seguir:
+- O dano será um número aleatório entre 15 (dano mínimo) e o valor do atributo `strength` (dano máximo).
 
-```Java Script
-const numberGenerator = () => {
-  return Math.random() * 100;
-}
+---
 
-console.log(numberGenerator);
+**2 -** Crie uma função que retorna o dano causado pelo `warrior` .
 
+- O dano será um número aleatório entre o valor do atributo `strength` (dano mínimo) e o valor de `strength` * `weaponDmg` (dano máximo).
+
+---
+
+**3 -** Crie uma função que retorna um objeto com duas chaves e dois valores contendo o dano e a mana gasta pelo mago em um turno.
+
+- O dano será um número aleatório entre o valor do atributo `intelligence` (dano mínimo) e o valor de `intelligence` * 2 (dano máximo).
+- A `mana` consumida por turno é 15. Além disto a função deve ter uma condicional, caso o mago tenha menos de 15 de mana o valor de dano recebe uma mensagem (Ex: "Não possui mana suficiente") e a mana gasta é 0.
+
+---
+
+### **Parte II**
+
+Agora que você já possui a implementação das funções relativas aos três exercícios anteriores, passe-as como parâmetro para outras funções que irão compor um objeto `gameActions` . O objeto será composto por ações do jogo e cada ação é por denifição uma *HOF* , pois neste caso, são funções que recebem como parâmetro outra função.
+
+Copie o código abaixo e inicie sua implementação:
+
+```jsx
+const gameActions = {
+  // Crie as HOFs neste objeto.
+};
 ```
 
-Veja que ao executar esse código, não recebemos um número aleatório. Isso aconteceu porque na quinta linha do script nós imprimimos apenas a escrita da função, como não realizamos sua execução, ela não seguiu os procedimentos para retornar um número aleatório. Para executarmos a função, teríamos que inserir `()` na frente do `numberGenerator` .
+---
 
-Essa lógica é a mesma quando usamos callback dentro de outras funções. Lembre que o traço do JavaScript que considera funções como cidadãs de primeira classe permite que nós possamos inserir elas em variáveis. Você já fez isso antes também, se voltar no primeiro exemplo dessa função, vai ver que a chamada da callback no `addEventListener` funciona de modo similar. Tudo isso é parte de algo maior, são *High Order Functions* .
+**1 -** Crie a primeira *HOF* que compõe o objeto `gameActions` . Ela será a função que simula o turno do personagem `warrior` . Esta *HOF* receberá como parâmetro a função que calcula o dano deferido pelo personagem `warrior` e atualizará os `healthPoints` do monstro `dragon` . Além disto ela também deve atualizar o valor da chave `damage` do `warrior` .
+
+---
+
+**2 -** Crie a segunda *HOF* que compõe o objeto `gameActions` . Ela será a função que simula o turno do personagem `mage` . Esta *HOF* receberá como parâmetro a função que calcula o dano deferido pelo personagem `mage` e atualizará os `healthPoints` do monstro `dragon` . Além disto ela também deve atualizar o valor das chaves `damage` e `mana` do mage.
+
+---
+
+**3 -** Crie a terceira *HOF* que compõe o objeto `gameActions` . Ela será a função que simula o turno do monstro `dragon` . Esta *HOF* receberá como parâmetro a função que calcula o dano deferido pelo monstro `dragon` e atualizará os `healthPoints` dos personagens `mage` e `warrior` . Além disto ela também deve atualizar o valor da chave `damage` do monstro.
+
+---
+
+**4 -** Adicione ao objeto `gameActions` uma função que retorne o objeto `battleMembers` atualizado e faça um `console.log` para visualizar o resultado final do turno.
+
+---
