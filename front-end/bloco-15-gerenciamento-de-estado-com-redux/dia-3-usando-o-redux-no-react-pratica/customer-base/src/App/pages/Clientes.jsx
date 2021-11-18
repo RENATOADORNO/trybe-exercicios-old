@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ClientesCadastrados extends Component {
+export default class Clientes extends Component {
   render() {
     return (
       <section>

@@ -1,21 +1,18 @@
 {
-    "env": {
-      "browser": true,
-      "es2021": true
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": ["plugin:prettier/recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": ["plugin:prettier/recommended"],
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": true
-      },
-      "ecmaVersion": 12,
-      "sourceType": "module"
-    },
-    "plugins": ["prettier"],
-    "rules": {
-      "prettier/prettier": ["error", { "endOfLine": "auto" }],
-      "arrow-body-style": "off",
-      "prefer-arrow-callback": "off"
-    }
-  }
+    "sourceType": "module"
+  },
+  "plugins": ["react", "prettier"],
+  "prettier/prettier": ["error", { "endOfLine": "auto" }],
+  "arrow-body-style": "off",
+  "prefer-arrow-callback": "off"
+}
