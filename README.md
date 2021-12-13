@@ -70,7 +70,7 @@ Todo o conteúde deste repositório tem como principal referencia a [Trybe](http
 
 ##### Bloco 9: Assincronicidade & Callbacks
 
-- [x] 9-1: _JavaScript AssÃ­ncrono e Callbacks_
+- [x] 9-1: _JavaScript Assincrono e Callbacks_
 - [x] 9-2: _JavaScript Promises_
 - [x] 9-3: _[Projeto - Carrinho de Compras]()_
 
@@ -92,7 +92,7 @@ Todo o conteúde deste repositório tem como principal referencia a [Trybe](http
 ##### Bloco 12: React
 
 - [x] 12-1: _Components com estado_
-- [x] 12-2: _Eventos e formulÃ¡rios no React_
+- [x] 12-2: _Eventos e formularios no React_
 - [x] 12-3: _[Projeto - Movie Cards Library Stateful]()_
 
 ##### Bloco 13: React
@@ -104,7 +104,7 @@ Todo o conteúde deste repositório tem como principal referencia a [Trybe](http
 
 ##### Bloco 14: Metodologias Ãgeis
 
-- [x] 14-1: _Metodologias Ãgeis_
+- [x] 14-1: _Metodologias Ageis_
 - [x] 14-2: _[Projeto - Frontend Online Store]()_
 
 ##### Bloco 15: Testes em React
@@ -113,13 +113,13 @@ Todo o conteúde deste repositório tem como principal referencia a [Trybe](http
 - [x] 15-2: _Testando React com a React Testing Library - Parte 2_
 - [x] 15-3: _[Projeto - Testes em React]()_
 
-##### Bloco 16: IntroduÃ§Ã£o ao Redux
+##### Bloco 16: Introdução ao Redux
 
-- [x] 16-1: _IntroduÃ§Ã£o ao Redux_
+- [x] 16-1: _Introdução ao Redux_
 - [x] 16-2: _React com Redux - Parte 1_
-- [x] 16-3: _React com Redux - PrÃ¡tica_
+- [x] 16-3: _React com Redux - Pratica_
 - [x] 16-4: _React com Redux - Parte 2_
-- [x] 16-5: _Testes sÃ­ncronos com React-Redux_
+- [x] 16-5: _Testes Assincronos com React-Redux_
 - [x] 16-6: _[Projeto - Tabela com filtros de dados]()_
 
 ##### Bloco 17: Projeto React
